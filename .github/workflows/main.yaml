@@ -47,4 +47,6 @@ jobs:
         run: sed -i 's|tohafrit/web:.*|tohafrit/web:${{ github.sha }}|g' deploy.yaml
 
       - name: Deploy to Kubernetes
-        run: kubectl apply -f deploy.yaml
+        run: |
+          kubectl apply -f deploy.yaml
+          kubectl apply -f service.yaml
